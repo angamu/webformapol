@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiénes Somos – Formapol S.A.S. | Empresa EPS Manizales</title>
+  <meta name="description" content="Formapol S.A.S.: más de 30 años liderando la fabricación de productos en EPS en Colombia. Conoce nuestra misión, visión, equipo y compromiso con la calidad." />
+  <link rel="canonical" href="https://www.formapol.com/nosotros.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --c-orange: #00A8CC; --c-orange-light: #33C4E8;
+      --c-dark: #0D1B2A; --c-dark2: #1C2B3A; --c-dark3: #1A3F6F;
+      --c-white: #FFFFFF;
+      --font-head: 'Barlow Condensed', sans-serif; --font-body: 'Barlow', sans-serif;
+      --radius: 4px; --transition: 0.25s ease;
+      --c-blue: #1A3F6F; --c-blue-mid: #1E5294;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--c-dark); color: var(--c-white); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 68px; background: rgba(13,27,42,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(26,63,111,0.16); }
+    .nav-logo { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; letter-spacing: 0.04em; color: var(--c-white); text-decoration: none; }
+    .nav-logo span { color: var(--c-orange); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--font-head); font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color var(--transition); position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--c-orange); transition: width var(--transition); }
+    .nav-links a:hover { color: var(--c-white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--c-orange); }
+    .nav-cta { background: var(--c-blue); color: var(--c-white) !important; padding: 0.45rem 1.2rem; border-radius: var(--radius); }
+    .nav-cta::after { display: none !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--c-white); }
+
+    .page-hero { padding: 140px 5vw 80px; background: linear-gradient(160deg, #0D1B2A 0%, #1C2B3A 100%); position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 20% 50%, rgba(0,168,204,0.08) 0%, transparent 70%); }
+    .page-hero-inner { position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 1.5rem; font-family: var(--font-head); letter-spacing: 0.1em; text-transform: uppercase; }
+    .breadcrumb a { color: rgba(255,255,255,0.35); text-decoration: none; }
+    .breadcrumb span { color: var(--c-orange); }
+    .section-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-head); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-orange); margin-bottom: 1rem; }
+    .section-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--c-orange); }
+    .page-title { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; text-transform: uppercase; line-height: 0.95; margin-bottom: 1.2rem; }
+
+    /* HERO GRID */
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .hero-lead { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 500px; }
+
+    .stats-inline { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+    .stat-box { background: var(--c-dark3); border: 1px solid rgba(26,63,111,0.12); border-radius: var(--radius); padding: 1.2rem; }
+    .stat-box .num { font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; color: var(--c-orange); line-height: 1; }
+    .stat-box .lbl { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
+
+    /* TIMELINE */
+    .timeline-section { padding: 6rem 5vw; background: var(--c-dark2); }
+    .timeline { position: relative; margin-top: 3rem; padding-left: 3rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--c-orange), rgba(0,168,204,0.08)); }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot { position: absolute; left: -3.4rem; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--c-orange); border: 2px solid var(--c-dark2); }
+    .timeline-year { font-family: var(--font-head); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; color: var(--c-orange); text-transform: uppercase; margin-bottom: 0.3rem; }
+    .timeline-item h3 { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+    .timeline-item p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* MISIÓN VISIÓN */
+    .mision-section { padding: 6rem 5vw; background: var(--c-dark); }
+    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    .mv-card { background: var(--c-dark2); border-radius: 8px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+    .mv-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--c-orange); }
+    .mv-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .mv-card h2 { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; }
+    .mv-card p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.75; font-weight: 300; }
+
+    /* PILARES */
+    .pilares-section { padding: 6rem 5vw; background: var(--c-dark2); }
+    .pilares-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .pilar-card { background: var(--c-dark3); border-radius: 8px; padding: 2rem; border: 1px solid rgba(255,255,255,0.05); transition: border-color var(--transition), transform var(--transition); }
+    .pilar-card:hover { border-color: rgba(0,168,204,0.3); transform: translateY(-3px); }
+    .pilar-num { font-family: var(--font-head); font-size: 3rem; font-weight: 800; color: rgba(26,63,111,0.16); line-height: 1; margin-bottom: 0.5rem; }
+    .pilar-card h3 { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-orange); margin-bottom: 0.75rem; }
+    .pilar-card p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    /* CLIENTES STRIP */
+    .clientes-section { padding: 5rem 5vw; background: var(--c-dark); text-align: center; }
+    .section-title { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; text-transform: uppercase; line-height: 1; margin-bottom: 1rem; }
+    .clientes-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2.5rem; }
+    .client-chip { background: var(--c-dark3); border: 1px solid rgba(255,255,255,0.08); border-radius: 40px; padding: 0.6rem 1.5rem; font-family: var(--font-head); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6); transition: border-color var(--transition), color var(--transition); }
+    .client-chip:hover { border-color: var(--c-orange); color: var(--c-white); }
+
+    /* SEDES */
+    .sedes-section { padding: 5rem 5vw; background: var(--c-dark2); }
+    .sedes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    .sede-card { background: var(--c-dark3); border-radius: 8px; padding: 2rem; border: 1px solid rgba(255,255,255,0.06); }
+    .sede-card h3 { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--c-orange); margin-bottom: 1rem; }
+    .sede-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.75; }
+    .sede-card a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color var(--transition); }
+    .sede-card a:hover { color: var(--c-orange); }
+
+    /* CTA */
+    .cta-band { background: var(--c-blue); padding: 4rem 5vw; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .cta-band h2 { font-family: var(--font-head); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; text-transform: uppercase; line-height: 1.1; }
+    .cta-band p { font-size: 0.95rem; opacity: 0.85; margin-top: 0.5rem; }
+    .btn-white { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--c-white); color: var(--c-blue); font-family: var(--font-head); font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 2rem; border-radius: var(--radius); white-space: nowrap; }
+
+    footer { background: var(--c-dark2); border-top: 1px solid rgba(26,63,111,0.16); padding: 3rem 5vw 2rem; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand .nav-logo { display: block; margin-bottom: 1rem; font-size: 1.5rem; }
+    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }
+    .footer-col h5 { font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--c-orange); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col ul a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color var(--transition); }
+    .footer-col ul a:hover { color: var(--c-white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: var(--c-dark2); padding: 2rem 5vw; gap: 1.5rem; border-bottom: 1px solid rgba(26,63,111,0.16); }
+      .hamburger { display: flex; }
+      .hero-grid, .mv-grid, .pilares-grid, .sedes-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: span 2; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .cta-band { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">FORMA<span>POL</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#eps">¿Qué es EPS?</a></li>
+    <li><a href="productos.html">Productos</a></li>
+    <li><a href="obras.html">Obras</a></li>
+    <li><a href="nosotros.html" class="active">Nosotros</a></li>
+    <li><a href="contacto.html" class="nav-cta">Contáctenos</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Inicio</a> › <span>Nosotros</span></div>
+  <div class="hero-grid page-hero-inner">
+    <div>
+      <span class="section-tag">Quiénes somos</span>
+      <h1 class="page-title">Más de 10 años<br>construyendo<br><em style="font-style:normal;color:var(--c-orange);">calidad</em></h1>
+    </div>
+    <div>
+      <p class="hero-lead">Somos líderes en la línea de empaques industriales, paneles termo-acústicos, láminas para la construcción y otras aplicaciones en EPS. Los productos de Formapol son certificados y producidos bajo las más estrictas normas de calidad, con excelente equipo humano, infraestructura y tecnología.</p>
+      <div class="stats-inline">
+        <div class="stat-box"><div class="num">+10</div><div class="lbl">Años de experiencia</div></div>
+        <div class="stat-box"><div class="num">2</div><div class="lbl">Plantas de producción</div></div>
+        <div class="stat-box"><div class="num">6</div><div class="lbl">Líneas de producto</div></div>
+        <div class="stat-box"><div class="num">+10</div><div class="lbl">Clientes líderes</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISIÓN Y VISIÓN -->
+<section class="mision-section" id="mision">
+  <span class="section-tag">Direccionamiento estratégico</span>
+  <h2 class="section-title">Misión y Visión</h2>
+  <div class="mv-grid">
+    <div class="mv-card">
+      <div class="mv-card-icon">🎯</div>
+      <h2>Misión</h2>
+      <p>Fabricar y comercializar productos de poliestireno expandido (EPS) de alta calidad para los sectores de construcción, industria e infraestructura vial en Colombia, con un equipo humano competente, tecnología de punta y compromiso permanente con la satisfacción de nuestros clientes, el bienestar de nuestros colaboradores y la sostenibilidad ambiental.</p>
+    </div>
+    <div class="mv-card">
+      <div class="mv-card-icon">🚀</div>
+      <h2>Visión</h2>
+      <p>Para 2030, ser la empresa de referencia en soluciones de EPS en Colombia y expandir nuestra presencia en mercados latinoamericanos, reconocidos por la innovación de nuestros productos, la excelencia de nuestro servicio y el impacto positivo que generamos en los proyectos de nuestros clientes y en las comunidades donde operamos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="pilares-section" id="pilares">
+  <span class="section-tag">Nuestros pilares</span>
+  <h2 class="section-title">Lo que nos define</h2>
+  <div class="pilares-grid">
+    <div class="pilar-card">
+      <div class="pilar-num">01</div>
+      <h3>Equipo humano</h3>
+      <p>Contamos con un equipo competente, con amplia experiencia y formación continua. Como lineamiento estratégico nos capacitamos permanentemente para el desarrollo individual y organizacional, lo que nos ha permitido potencializar la empresa y abrir nuevos mercados.</p>
+    </div>
+    <div class="pilar-card">
+      <div class="pilar-num">02</div>
+      <h3>Sistema de gestión</h3>
+      <p>Estamos comprometidos con la satisfacción de las necesidades de nuestros clientes y con la protección, promoción de la seguridad y salud de las personas en la organización, con orientación permanente a la mejora continua de nuestros procesos.</p>
+    </div>
+    <div class="pilar-card">
+      <div class="pilar-num">03</div>
+      <h3>Compromiso social</h3>
+      <p>Comprometidos con el cumplimiento de la normatividad legal vigente, el desarrollo de las competencias del personal, con las condiciones laborales de nuestros colaboradores para su calidad de vida y con el apoyo a causas sociales de nuestras comunidades.</p>
+    </div>
+    <div class="pilar-card">
+      <div class="pilar-num">04</div>
+      <h3>Tecnología e infraestructura</h3>
+      <p>Dos plantas de producción equipadas con maquinaria especializada para garantizar la calidad, la capacidad de respuesta y la innovación que exige el mercado colombiano de materiales de construcción e industria.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section class="timeline-section" id="trayectoria">
+  <span class="section-tag">Nuestra trayectoria</span>
+  <h2 class="section-title">Historia de<br>Formapol</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:1rem;">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Fundación</div>
+        <h3>Inicio de operaciones</h3>
+        <p>Formapol S.A.S. inicia su actividad en Manizales como empresa fabricante de embalajes en poliestireno expandido para el sector de electrodomésticos.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Expansión</div>
+        <h3>Nuevas líneas de producto</h3>
+        <p>Incorporación de las líneas de construcción: casetones, láminas de aislamiento y panel ligero para muro, ampliando la oferta al sector de la construcción.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Infraestructura vial</div>
+        <h3>Geofoam para obras civiles</h3>
+        <p>Ingreso al mercado de infraestructura vial con el sistema Geofoam bajo normas ASTM, participando en proyectos de gran envergadura en todo el país.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Hoy</div>
+        <h3>Líderes en EPS</h3>
+        <p>Dos plantas de producción, más de 10 clientes líderes y presencia en proyectos desde Cartagena hasta Casanare.</p>
+      </div>
+    </div>
+    <div>
+      <div style="background:var(--c-dark3);border-radius:8px;padding:2.5rem;border:1px solid rgba(26,63,111,0.12);">
+        <span class="section-tag">Certificaciones y normas</span>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;gap:1rem;align-items:center;padding:1rem;background:var(--c-dark2);border-radius:var(--radius);">
+            <span style="font-size:1.5rem;">🏆</span>
+            <div><strong style="font-family:var(--font-head);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;">ASTM D6817</strong><p style="font-size:0.8rem;color:rgba(255,255,255,0.45);margin-top:0.1rem;">Bloques Geofoam de EPS</p></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:center;padding:1rem;background:var(--c-dark2);border-radius:var(--radius);">
+            <span style="font-size:1.5rem;">✅</span>
+            <div><strong style="font-family:var(--font-head);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;">Normas internacionales de calidad</strong><p style="font-size:0.8rem;color:rgba(255,255,255,0.45);margin-top:0.1rem;">Estándares internacionales de producción</p></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:center;padding:1rem;background:var(--c-dark2);border-radius:var(--radius);">
+            <span style="font-size:1.5rem;">🌿</span>
+            <div><strong style="font-family:var(--font-head);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;">Sin CFC</strong><p style="font-size:0.8rem;color:rgba(255,255,255,0.45);margin-top:0.1rem;">No contiene agentes dañinos para la capa de ozono</p></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:center;padding:1rem;background:var(--c-dark2);border-radius:var(--radius);">
+            <span style="font-size:1.5rem;">💧</span>
+            <div><strong style="font-family:var(--font-head);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.05em;">Biológicamente inocuo</strong><p style="font-size:0.8rem;color:rgba(255,255,255,0.45);margin-top:0.1rem;">No contamina aguas subterráneas</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section class="clientes-section">
+  <span class="section-tag">Empresas que confían en nosotros</span>
+  <h2 class="section-title">Nuestros Clientes</h2>
+  <div class="clientes-grid">
+    <div class="client-chip">Mabe</div>
+    <div class="client-chip">Industrias Haceb</div>
+    <div class="client-chip">Haceb Whirlpool Industrial</div>
+    <div class="client-chip">Challenger</div>
+    <div class="client-chip">Constructora CSS</div>
+    <div class="client-chip">Termales El Otoño</div>
+    <div class="client-chip">Corev</div>
+    <div class="client-chip">Deacivil</div>
+    <div class="client-chip">Terraceo</div>
+    <div class="client-chip">Inducascos</div>
+  </div>
+</section>
+
+<!-- SEDES -->
+<section class="sedes-section">
+  <span class="section-tag">Dónde estamos</span>
+  <h2 class="section-title">Nuestras Sedes</h2>
+  <div class="sedes-grid">
+    <div class="sede-card">
+      <h3>📍 Manizales – Sede Principal</h3>
+      <p>Km 10 Vía a Magdalena, 500 mts después del SENA<br>Manizales, Caldas<br><br>
+      <a href="tel:+5768740628">📞 (6) 874 0628</a><br>
+      <a href="mailto:comercial@formapol.com">✉️ comercial@formapol.com</a></p>
+    </div>
+    <div class="sede-card">
+      <h3>📍 Copacabana – Sede Antioquia</h3>
+      <p>Km 16 Autopista Norte, Vereda El Noral<br>Bodegas Qbox, Bodega 3<br>Copacabana, Antioquia</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div>
+    <h2>¿Quiere trabajar<br>con nosotros?</h2>
+    <p>Hablemos sobre cómo Formapol puede apoyar su próximo proyecto.</p>
+  </div>
+  <a href="contacto.html" class="btn-white">Contáctenos →</a>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo">FORMA<span>POL</span></a>
+      <p>Fabricantes de soluciones en poliestireno expandido (EPS) para construcción, infraestructura vial e industria.</p>
+    </div>
+    <div class="footer-col"><h5>Productos</h5><ul>
+      <li><a href="productos.html#geofoam">Geofoam</a></li>
+      <li><a href="productos.html#panel-muro">Panel ligero</a></li>
+      <li><a href="productos.html#laminas">Láminas de aislamiento</a></li>
+      <li><a href="productos.html#casetones">Casetones</a></li>
+      <li><a href="productos.html#embalajes">Embalajes</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Empresa</h5><ul>
+      <li><a href="nosotros.html">Quiénes somos</a></li>
+      <li><a href="obras.html">Nuestras obras</a></li>
+      <li><a href="index.html#clientes">Clientes</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Contacto</h5><ul>
+      <li><a href="mailto:comercial@formapol.com">comercial@formapol.com</a></li>
+      <li><a href="tel:+5768740628">(6) 874 0628</a></li>
+      <li><a href="contacto.html">Solicitar cotización</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Formapol S.A.S. Todos los derechos reservados.</p>
+    <p>Manizales, Caldas · Colombia</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+</body>
+</html>
