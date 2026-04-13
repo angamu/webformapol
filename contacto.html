@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.ico">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.ico">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contáctenos – Formapol S.A.S. | Manizales y Copacabana</title>
@@ -8,355 +11,163 @@
   <link rel="canonical" href="https://www.formapol.com/contacto.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --c-orange: #00A8CC; --c-orange-light: #33C4E8;
-      --c-dark: #0D1B2A; --c-dark2: #1C2B3A; --c-dark3: #1A3F6F;
-      --c-white: #FFFFFF;
-      --font-head: 'Barlow Condensed', sans-serif; --font-body: 'Barlow', sans-serif;
-      --radius: 4px; --transition: 0.25s ease;
-      --c-blue: #1A3F6F; --c-blue-mid: #1E5294;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background: var(--c-dark); color: var(--c-white); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 68px; background: rgba(13,27,42,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(26,63,111,0.16); }
-    .nav-logo { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; letter-spacing: 0.04em; color: var(--c-white); text-decoration: none; }
-    .nav-logo span { color: var(--c-orange); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--font-head); font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color var(--transition); position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--c-orange); transition: width var(--transition); }
-    .nav-links a:hover { color: var(--c-white); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a.active { color: var(--c-orange); }
-    .nav-cta { background: var(--c-blue); color: var(--c-white) !important; padding: 0.45rem 1.2rem; border-radius: var(--radius); }
-    .nav-cta::after { display: none !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--c-white); }
-
-    /* HERO */
-    .contact-hero {
-      padding: 140px 5vw 0;
-      background: linear-gradient(160deg, #0D1B2A 0%, #1C2B3A 100%);
-      position: relative; overflow: hidden;
-      display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 5rem;
-    }
-    .contact-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 40% 60% at 80% 60%, rgba(0,168,204,0.08) 0%, transparent 70%); }
-    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 1.5rem; font-family: var(--font-head); letter-spacing: 0.1em; text-transform: uppercase; }
-    .breadcrumb a { color: rgba(255,255,255,0.35); text-decoration: none; }
-    .breadcrumb span { color: var(--c-orange); }
-    .section-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-head); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-orange); margin-bottom: 1rem; }
-    .section-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--c-orange); }
-    .page-title { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; text-transform: uppercase; line-height: 0.95; margin-bottom: 1.2rem; }
-    .page-subtitle { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 2rem; }
-
-    .hero-left { position: relative; z-index: 1; padding-bottom: 5rem; }
-    .hero-right { position: relative; z-index: 1; }
-
-    /* DATOS RÁPIDOS */
-    .quick-contacts { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-    .quick-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); text-decoration: none; color: inherit; transition: border-color var(--transition), background var(--transition); }
-    .quick-item:hover { border-color: var(--c-orange); background: rgba(0,168,204,0.08); }
-    .quick-icon { font-size: 1.2rem; flex-shrink: 0; }
-    .quick-label { font-family: var(--font-head); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 0.1rem; }
-    .quick-value { font-size: 0.95rem; color: var(--c-white); font-weight: 400; }
-
-    /* FORM CARD */
-    .form-card {
-      background: var(--c-dark3);
-      border: 1px solid rgba(26,63,111,0.16);
-      border-radius: 12px 12px 0 0;
-      padding: 2.5rem;
-    }
-    .form-card h2 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.3rem; }
-    .form-card p { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
-
-    .form-grid { display: flex; flex-direction: column; gap: 1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-    .form-group label { font-family: var(--font-head); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-    .form-group input, .form-group textarea, .form-group select {
-      background: var(--c-dark2); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius); padding: 0.75rem 1rem;
-      color: var(--c-white); font-family: var(--font-body); font-size: 0.9rem;
-      transition: border-color var(--transition); width: 100%;
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--c-orange); }
-    .form-group textarea { resize: vertical; min-height: 120px; }
-    .form-group select option { background: var(--c-dark2); }
-    .btn-submit { background: var(--c-blue); color: var(--c-white); font-family: var(--font-head); font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: none; padding: 0.9rem 2rem; border-radius: var(--radius); cursor: pointer; transition: background var(--transition), transform var(--transition); width: 100%; }
-    .btn-submit:hover { background: var(--c-blue-mid); transform: translateY(-2px); }
-
-    /* SUCCESS */
-    .success-msg { display: none; background: rgba(29,158,117,0.15); border: 1px solid rgba(29,158,117,0.3); border-radius: var(--radius); padding: 1rem 1.2rem; font-size: 0.9rem; color: #5DCAA5; text-align: center; }
-    .success-msg.show { display: block; }
-
-    /* SEDES */
-    .sedes-section { padding: 5rem 5vw; background: var(--c-dark2); }
-    .sedes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
-    .sede-card { background: var(--c-dark3); border-radius: 8px; padding: 2rem; border: 1px solid rgba(255,255,255,0.06); }
-    .sede-card h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--c-orange); margin-bottom: 1.2rem; }
-    .sede-detail { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.75rem; }
-    .sede-detail-icon { font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
-    .sede-detail-text { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
-    .sede-detail-text a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color var(--transition); }
-    .sede-detail-text a:hover { color: var(--c-orange); }
-
-    /* MAPA EMBED PLACEHOLDER */
-    .map-placeholder { background: var(--c-dark3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); overflow: hidden; height: 300px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.75rem; margin-top: 1.2rem; }
-    .map-placeholder span { font-size: 2rem; }
-    .map-placeholder p { font-size: 0.78rem; color: rgba(255,255,255,0.2); font-family: var(--font-head); letter-spacing: 0.1em; text-transform: uppercase; }
-    .map-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-orange); text-decoration: none; }
-
-    /* FAQ */
-    .faq-section { padding: 5rem 5vw; background: var(--c-dark); }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; }
-    .faq-item { background: var(--c-dark2); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.05); overflow: hidden; }
-    .faq-question { font-family: var(--font-head); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-    .faq-question::after { content: '+'; color: var(--c-orange); font-size: 1.2rem; transition: transform var(--transition); }
-    .faq-item.open .faq-question::after { transform: rotate(45deg); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-    .faq-item.open .faq-answer { max-height: 200px; }
-    .faq-answer p { padding: 0 1.5rem 1.2rem; font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
-
-    footer { background: var(--c-dark2); border-top: 1px solid rgba(26,63,111,0.16); padding: 3rem 5vw 2rem; }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer-brand .nav-logo { display: block; margin-bottom: 1rem; font-size: 1.5rem; }
-    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }
-    .footer-col h5 { font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--c-orange); margin-bottom: 1rem; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .footer-col ul a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color var(--transition); }
-    .footer-col ul a:hover { color: var(--c-white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: var(--c-dark2); padding: 2rem 5vw; gap: 1.5rem; border-bottom: 1px solid rgba(26,63,111,0.16); }
-      .hamburger { display: flex; }
-      .contact-hero { grid-template-columns: 1fr; padding-bottom: 0; }
-      .hero-left { padding-bottom: 2rem; }
-      .form-card { border-radius: var(--radius); }
-      .form-row { grid-template-columns: 1fr; }
-      .sedes-grid, .faq-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .footer-brand { grid-column: span 2; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="css/contacto.css" />
+  <script src="components.js"></script>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">FORMA<span>POL</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html#eps">¿Qué es EPS?</a></li>
-    <li><a href="productos.html">Productos</a></li>
-    <li><a href="obras.html">Obras</a></li>
-    <li><a href="nosotros.html">Nosotros</a></li>
-    <li><a href="contacto.html" class="nav-cta active">Contáctenos</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
-</nav>
+<site-nav></site-nav>
 
-<section class="contact-hero">
-  <div class="hero-left">
-    <div class="breadcrumb"><a href="index.html">Inicio</a> › <span>Contacto</span></div>
-    <span class="section-tag">Hablemos</span>
-    <h1 class="page-title">Contáctenos</h1>
-    <p class="page-subtitle">Cuéntenos sobre su proyecto y nuestro equipo comercial le responderá con la asesoría y cotización que necesita.</p>
-
-    <div class="quick-contacts">
-      <a href="tel:+5768740628" class="quick-item">
-        <span class="quick-icon">📞</span>
-        <div><div class="quick-label">Teléfono</div><div class="quick-value">(6) 874 0628</div></div>
-      </a>
-      <a href="mailto:comercial@formapol.com" class="quick-item">
-        <span class="quick-icon">✉️</span>
-        <div><div class="quick-label">Correo</div><div class="quick-value">comercial@formapol.com</div></div>
-      </a>
-      <div class="quick-item">
-        <span class="quick-icon">📍</span>
-        <div><div class="quick-label">Sede principal</div><div class="quick-value">Km 10 Vía a Magdalena, Manizales</div></div>
+<!-- FORMULARIO -->
+<section class="cta-section" id="cotizacion">
+  <h2>Solicite una cotización<br>para su proyecto en EPS</h2>
+  <p>Cuéntenos los detalles técnicos de su proyecto y nuestro equipo de ingeniería le proporcionará una solución a la medida, con calidad certificada y precios competitivos.</p>
+  <form class="cta-form" id="ctaForm" action="enviar.php" method="POST" novalidate>
+    <input type="hidden" name="origen" value="contacto">
+    <div class="cta-form-row">
+      <div class="cta-form-group">
+        <label for="cf-nombre">Nombre *</label>
+        <input type="text" id="cf-nombre" name="nombre" placeholder="Nombre completo" required />
       </div>
-      <div class="quick-item">
-        <span class="quick-icon">🕐</span>
-        <div><div class="quick-label">Horario de atención</div><div class="quick-value">Lunes a viernes 7:00 am – 5:00 pm</div></div>
+      <div class="cta-form-group">
+        <label for="cf-empresa">Empresa *</label>
+        <input type="text" id="cf-empresa" name="empresa" placeholder="Nombre de la empresa" required />
       </div>
     </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="form-card">
-      <h2>Solicite cotización</h2>
-      <p>Todos los campos marcados son requeridos. Le respondemos en menos de 24 horas hábiles.</p>
-      <form class="form-grid" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="nombre">Nombre *</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Su nombre completo" required />
-          </div>
-          <div class="form-group">
-            <label for="empresa">Empresa</label>
-            <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">Correo electrónico *</label>
-            <input type="email" id="email" name="email" placeholder="correo@empresa.com" required />
-          </div>
-          <div class="form-group">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="ciudad">Ciudad / Departamento</label>
-          <input type="text" id="ciudad" name="ciudad" placeholder="Ej: Medellín, Antioquia" />
-        </div>
-        <div class="form-group">
-          <label for="producto">Producto de interés *</label>
-          <select id="producto" name="producto" required>
-            <option value="">Seleccione un producto</option>
-            <option value="Geofoam">Geofoam</option>
-            <option value="Panel ligero para muro">Panel ligero para muro</option>
-            <option value="Láminas de aislamiento térmico">Láminas de aislamiento térmico</option>
-            <option value="Casetones para losas">Casetones para losas</option>
-            <option value="Embalajes industriales">Embalajes industriales</option>
-            <option value="Productos especiales">Productos especiales</option>
-            <option value="Otro">Otro / No sé todavía</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="mensaje">Descripción del proyecto o necesidad *</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Cuéntenos sobre su proyecto: dimensiones, cantidades, fechas estimadas o cualquier detalle relevante..." required></textarea>
-        </div>
-        <button type="submit" class="btn-submit" id="submitBtn">Enviar solicitud →</button>
-        <div class="success-msg" id="successMsg">
-          ✓ Su mensaje fue enviado. Le contactaremos en menos de 24 horas hábiles.
-        </div>
-      </form>
+    <div class="cta-form-row">
+      <div class="cta-form-group">
+        <label for="cf-email">Correo electrónico *</label>
+        <input type="email" id="cf-email" name="email" placeholder="correo@empresa.com" required />
+      </div>
+      <div class="cta-form-group">
+        <label for="cf-telefono">Teléfono</label>
+        <input type="tel" id="cf-telefono" name="telefono" placeholder="+57 300 000 0000" />
+      </div>
     </div>
-  </div>
+    <div class="cta-form-group">
+      <label for="cf-producto">Línea o producto de interés</label>
+      <select id="cf-producto" name="producto">
+        <option value="">Seleccione una opción</option>
+        <option value="Geofoam">Geofoam</option>
+        <option value="Panel muro">Panel ligero para muro</option>
+        <option value="Laminas aislamiento">Láminas de aislamiento</option>
+        <option value="Casetones">Casetones para losas</option>
+        <option value="Embalajes">Embalajes industriales</option>
+        <option value="Productos especiales">Productos especiales</option>
+        <option value="Otro">Otro / No sé todavía</option>
+      </select>
+    </div>
+    <div class="cta-form-group">
+      <label for="cf-mensaje">Descripción del proyecto o requerimiento *</label>
+      <textarea id="cf-mensaje" name="mensaje" placeholder="Describa su proyecto: aplicación, materiales, cantidades estimadas, dimensiones, plazos..." required></textarea>
+    </div>
+    <button type="submit" class="cta-form-btn" id="ctaSubmitBtn">Enviar solicitud →</button>
+    <div id="ctaFormMsg" style="display:none;padding:0.85rem 1rem;border-radius:var(--radius);font-size:0.88rem;text-align:center;"></div>
+  </form>
 </section>
 
-<!-- SEDES -->
-<section class="sedes-section" id="sedes">
-  <span class="section-tag">Dónde encontrarnos</span>
-  <h2 style="font-family:var(--font-head);font-size:clamp(2rem,4vw,3rem);font-weight:800;text-transform:uppercase;line-height:1;margin-bottom:0.5rem;">Nuestras Sedes</h2>
-  <div class="sedes-grid">
-    <div class="sede-card">
+<!-- UBICACIÓN -->
+<section class="ubicacion-section" id="ubicacion">
+  <h2 class="faq-title">Nuestras sedes</h2>
+  <div class="ubicacion-grid">
+
+    <div class="ubicacion-card">
       <h3>📍 Manizales – Sede Principal</h3>
-      <div class="sede-detail">
-        <span class="sede-detail-icon">🗺️</span>
-        <div class="sede-detail-text">Km 10 Vía a Magdalena, 500 mts después del SENA<br>Manizales, Caldas</div>
+      <div class="ubicacion-row">
+        <span class="ubicacion-icon">🗺️</span>
+        <div class="ubicacion-text">Km 10 Vía a Magdalena, 500 mts después del SENA<br>
+          <em style="font-size:0.8rem;color:var(--c-gray-500);">Manizales, Caldas</em>
+        </div>
       </div>
-      <div class="sede-detail">
-        <span class="sede-detail-icon">📞</span>
-        <div class="sede-detail-text"><a href="tel:+5768740628">(6) 874 0628</a></div>
+      <div class="ubicacion-row">
+        <span class="ubicacion-icon">📞</span>
+        <div class="ubicacion-text">
+          <a href="tel:+576068740628">+57 (606) 8740628</a> &nbsp;|&nbsp;
+          <a href="tel:+576068741167">+57 (606) 8741167</a>
+        </div>
       </div>
-      <div class="sede-detail">
-        <span class="sede-detail-icon">✉️</span>
-        <div class="sede-detail-text"><a href="mailto:comercial@formapol.com">comercial@formapol.com</a></div>
+      <div class="ubicacion-row">
+        <span class="ubicacion-icon">✉️</span>
+        <div class="ubicacion-text"><a href="mailto:comercial@formapol.com">comercial@formapol.com</a></div>
       </div>
-      <div class="map-placeholder">
-        <span>🗺️</span>
-        <p>Mapa interactivo próximamente</p>
-        <a href="https://maps.google.com/?q=Km+10+Via+Magdalena+Manizales" target="_blank" rel="noopener" class="map-link">Ver en Google Maps →</a>
+      <div class="ubicacion-row">
+        <span class="ubicacion-icon">🕐</span>
+        <div class="ubicacion-text">Lunes a viernes &nbsp; 7:30 am – 5:00 pm</div>
+      </div>
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1776030936928!6m8!1m7!1smJoILb5NEeU68GJ_H3j1YA!2m2!1d5.029920241759371!2d-75.45336450963622!3f324.82658942769217!4f6.777684649344707!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
-    <div class="sede-card">
+
+    <div class="ubicacion-card">
       <h3>📍 Copacabana – Sede Antioquia</h3>
-      <div class="sede-detail">
-        <span class="sede-detail-icon">🗺️</span>
-        <div class="sede-detail-text">Km 16 Autopista Norte, Vereda El Noral<br>Bodegas Qbox, Bodega 3<br>Copacabana, Antioquia</div>
+      <div class="ubicacion-row">
+        <span class="ubicacion-icon">🗺️</span>
+        <div class="ubicacion-text">Km 16 Autopista Norte, Vereda El Noral, Bodegas Qbox, Bodega 3<br>
+          <em style="font-size:0.8rem;color:var(--c-gray-500);">Copacabana, Antioquia</em>
+        </div>
       </div>
-      <div class="sede-detail">
-        <span class="sede-detail-icon">✉️</span>
-        <div class="sede-detail-text"><a href="mailto:comercial@formapol.com">comercial@formapol.com</a></div>
+      <div class="ubicacion-row">
+        <span class="ubicacion-icon">📞</span>
+        <div class="ubicacion-text">
+          <a href="tel:+576068740628">+57 (606) 8740628</a> &nbsp;|&nbsp;
+          <a href="tel:+576068741167">+57 (606) 8741167</a>
+        </div>
       </div>
-      <div class="map-placeholder">
-        <span>🗺️</span>
-        <p>Mapa interactivo próximamente</p>
-        <a href="https://maps.google.com/?q=Km+16+Autopista+Norte+Copacabana+Antioquia" target="_blank" rel="noopener" class="map-link">Ver en Google Maps →</a>
+      <div class="ubicacion-row">
+        <span class="ubicacion-icon">✉️</span>
+        <div class="ubicacion-text"><a href="mailto:comercial@formapol.com">comercial@formapol.com</a></div>
+      </div>
+      <div class="ubicacion-row">
+        <span class="ubicacion-icon">🕐</span>
+        <div class="ubicacion-text">Lunes a viernes &nbsp; 7:30 am – 5:00 pm</div>
+      </div>
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!4v1776049945224!6m8!1m7!1sBI0AA0xIVuEmPq_G0K5G6w!2m2!1d6.362570204910569!2d-75.49472018359329!3f23.403913!4f0!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
+
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq-section">
-  <span class="section-tag">Preguntas frecuentes</span>
-  <h2 style="font-family:var(--font-head);font-size:clamp(2rem,4vw,3rem);font-weight:800;text-transform:uppercase;line-height:1;margin-bottom:0.5rem;">Preguntas Frecuentes</h2>
+  <h2 class="faq-title">Preguntas Frecuentes</h2>
   <div class="faq-grid">
     <div class="faq-item">
-      <div class="faq-question">¿Hacen envíos a todo Colombia?</div>
-      <div class="faq-answer"><p>Sí, despachamos a todo el territorio nacional. Contamos con clientes activos en ciudades como Cartagena, Medellín, Bogotá, Yopal y más. El flete varía según el volumen y destino del pedido.</p></div>
+      <div class="faq-q">¿Hacen envíos a todo Colombia?</div>
+      <div class="faq-a"><p>Sí, despachamos a todo el territorio nacional. Contamos con clientes activos en ciudades varias ciudades de Colombia. El flete varía según el volumen y destino del pedido.</p></div>
     </div>
     <div class="faq-item">
-      <div class="faq-question">¿Cuánto demora una cotización?</div>
-      <div class="faq-answer"><p>Nuestro equipo comercial responde en menos de 24 horas hábiles. Para productos estándar la respuesta puede ser más inmediata; para productos especiales o Geofoam puede requerir análisis técnico adicional.</p></div>
+      <div class="faq-q">¿Cuánto demora una cotización?</div>
+      <div class="faq-a"><p>Nuestro equipo comercial responde en menos de una semana. Para productos estándar la respuesta puede ser más inmediata; para productos especiales o Geofoam puede requerir análisis técnico adicional.</p></div>
     </div>
     <div class="faq-item">
-      <div class="faq-question">¿Fabrican productos a la medida?</div>
-      <div class="faq-answer"><p>Sí. Tenemos una línea completa de productos especiales donde diseñamos y fabricamos piezas adaptadas a las dimensiones y requerimientos de cada cliente. Cuéntenos su necesidad y le asesoramos.</p></div>
+      <div class="faq-q">¿Fabrican productos a la medida?</div>
+      <div class="faq-a"><p>Sí. Tenemos una línea completa de productos especiales donde diseñamos y fabricamos piezas adaptadas a las dimensiones y requerimientos de cada cliente. Cuéntenos su necesidad y le asesoramos.</p></div>
     </div>
     <div class="faq-item">
-      <div class="faq-question">¿Tienen certificaciones de calidad?</div>
-      <div class="faq-answer"><p>Nuestros productos cumplen con normas ASTM internacionales. El Geofoam está certificado bajo ASTM D6817. Adicionalmente, el EPS que usamos no contiene CFC y es biológicamente inocuo.</p></div>
+      <div class="faq-q">¿Tienen certificaciones de calidad?</div>
+      <div class="faq-a"><p>Sí. Estamos certificados bajo la norma ISO 9001:2015, lo que garantiza procesos controlados, trazabilidad completa y mejora continua en cada componente que fabricamos.</p></div>
     </div>
     <div class="faq-item">
-      <div class="faq-question">¿Cuál es el pedido mínimo?</div>
-      <div class="faq-answer"><p>Depende de la línea de producto. Para embalajes industriales trabajamos con volúmenes de producción en serie. Para Geofoam y sistemas constructivos el pedido mínimo se define según el proyecto. Consúltenos.</p></div>
+      <div class="faq-q">¿Cuál es el pedido mínimo?</div>
+      <div class="faq-a"><p>Depende de la línea de producto. Para embalajes industriales trabajamos con volúmenes de producción en serie. Para Geofoam y sistemas constructivos el pedido mínimo se define según el proyecto. Consúltenos.</p></div>
     </div>
     <div class="faq-item">
-      <div class="faq-question">¿Qué sectores atienden?</div>
-      <div class="faq-answer"><p>Atendemos los sectores de construcción (vivienda y edificaciones), infraestructura vial (Geofoam), industria y electrodomésticos (embalajes), y turismo/hotelería (aislamiento y paneles).</p></div>
+      <div class="faq-q">¿Qué sectores atienden?</div>
+      <div class="faq-a"><p>Atendemos los sectores de construcción (vivienda y edificaciones), infraestructura vial (Geofoam), industria y electrodomésticos (embalajes), y turismo/hotelería (aislamiento y paneles).</p></div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="nav-logo">FORMA<span>POL</span></a>
-      <p>Fabricantes de soluciones en poliestireno expandido (EPS) para construcción, infraestructura vial e industria.</p>
-    </div>
-    <div class="footer-col"><h5>Productos</h5><ul>
-      <li><a href="productos.html#geofoam">Geofoam</a></li>
-      <li><a href="productos.html#panel-muro">Panel ligero</a></li>
-      <li><a href="productos.html#laminas">Láminas de aislamiento</a></li>
-      <li><a href="productos.html#casetones">Casetones</a></li>
-      <li><a href="productos.html#embalajes">Embalajes</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Empresa</h5><ul>
-      <li><a href="nosotros.html">Quiénes somos</a></li>
-      <li><a href="obras.html">Nuestras obras</a></li>
-      <li><a href="index.html#clientes">Clientes</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Contacto</h5><ul>
-      <li><a href="mailto:comercial@formapol.com">comercial@formapol.com</a></li>
-      <li><a href="tel:+5768740628">(6) 874 0628</a></li>
-      <li><a href="contacto.html">Solicitar cotización</a></li>
-    </ul></div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 Formapol S.A.S. Todos los derechos reservados.</p>
-    <p>Manizales, Caldas · Colombia</p>
-  </div>
-</footer>
+<site-footer></site-footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
   // FAQ accordion
-  document.querySelectorAll('.faq-question').forEach(q => {
+  document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
       const item = q.parentElement;
       const isOpen = item.classList.contains('open');
@@ -365,31 +176,36 @@
     });
   });
 
-  // Pre-select producto from URL
-  const params = new URLSearchParams(window.location.search);
-  const producto = params.get('producto');
-  if (producto) {
-    const sel = document.getElementById('producto');
-    for (let opt of sel.options) {
-      if (opt.value.toLowerCase().includes(producto.toLowerCase())) {
-        opt.selected = true; break;
+  // Pre-select producto desde URL (?producto=...)
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const producto = params.get('producto');
+    if (producto) {
+      const sel = document.getElementById('cf-producto');
+      if (sel) for (let opt of sel.options) {
+        if (opt.value.toLowerCase().includes(producto.toLowerCase())) { opt.selected = true; break; }
       }
     }
-  }
+  })();
 
-  // Form submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn');
-    const msg = document.getElementById('successMsg');
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.style.display = 'none';
-      msg.classList.add('show');
-      e.target.reset();
-    }, 1200);
-  }
+  // Feedback de envío
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const estado = params.get('estado');
+    const msg = document.getElementById('ctaFormMsg');
+    if (!estado || !msg) return;
+    msg.style.display = 'block';
+    if (estado === 'ok') {
+      msg.style.cssText += 'background:rgba(107,245,154,0.15);border:1px solid rgba(107,245,154,0.35);color:#2e7d32;';
+      msg.textContent = '✓ Su solicitud fue enviada con éxito. Le contactaremos pronto.';
+      document.getElementById('ctaForm').reset();
+    } else {
+      msg.style.cssText += 'background:rgba(245,107,107,0.15);border:1px solid rgba(245,107,107,0.35);color:#c62828;';
+      msg.textContent = params.get('msg') || 'Ocurrió un error al enviar. Intente de nuevo.';
+    }
+    document.getElementById('ctaForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    history.replaceState(null, '', window.location.pathname);
+  })();
 </script>
 </body>
 </html>

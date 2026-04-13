@@ -1,0 +1,191 @@
+/* CTA SECTION — formulario principal */
+.cta-section {
+  margin-top: 100px;
+  padding: 4rem 5vw;
+  background: #135184;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #EDF2F7;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.cta-section > p {
+  font-size: 14px;
+  color: #EDF2F7;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+/* UBICACIÓN */
+.ubicacion-section {
+  padding: 4rem 5vw;
+  background: var(--c-white);
+}
+
+.ubicacion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.ubicacion-card {
+  background: var(--c-gray-50);
+  border: 1.5px solid var(--c-gray-300);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+}
+
+.ubicacion-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c-blue);
+  margin-bottom: 1.2rem;
+}
+
+.ubicacion-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.ubicacion-icon {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ubicacion-text {
+  font-size: 0.875rem;
+  color: var(--c-gray-700);
+  line-height: 1.5;
+}
+
+.ubicacion-text a {
+  color: var(--c-gray-700);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.ubicacion-text a:hover {
+  color: var(--c-blue);
+}
+
+.map-box {
+  background: var(--c-gray-100);
+    border: 1px solid var(--c-gray-300);
+    border-radius: var(--radius);
+    height: 260px;
+    overflow: hidden;
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.map-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--c-blue);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+/* FAQ */
+.faq-section {
+  padding: 4rem 5vw;
+  background: var(--c-gray-50);
+}
+
+.faq-title {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--c-dark);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.faq-item {
+  background: var(--c-white);
+  border: 1px solid var(--c-gray-300);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.faq-q {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--c-dark);
+  padding: 1.1rem 1.3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-q::after {
+  content: '+';
+  color: var(--c-blue);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.faq-item.open .faq-q::after {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.open .faq-a {
+  max-height: 200px;
+}
+
+.faq-a p {
+  padding: 0 1.3rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--c-gray-500);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .ubicacion-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+#cotizacion .cta-form {
+    background: #ffffff1f;
+}
+
+#cotizacion .cta-form-group label {
+    color: #ffffff;
+}

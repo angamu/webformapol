@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.ico">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.ico">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Productos EPS – Geofoam, Embalajes, Paneles | Formapol S.A.S.</title>
@@ -8,205 +11,17 @@
   <link rel="canonical" href="https://www.formapol.com/productos.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --c-orange: #00A8CC; --c-orange-dark: #1E5294; --c-orange-light: #33C4E8;
-      --c-dark: #0D1B2A; --c-dark2: #1C2B3A; --c-dark3: #1A3F6F;
-      --c-mid: #3A4F63; --c-gray: #6A8099; --c-light: #F7FAFC; --c-white: #FFFFFF;
-      --font-head: 'Barlow Condensed', sans-serif; --font-body: 'Barlow', sans-serif;
-      --radius: 4px; --transition: 0.25s ease;
-      --c-blue: #1A3F6F; --c-blue-mid: #1E5294;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background: var(--c-dark); color: var(--c-white); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw; height: 68px;
-      background: rgba(13,27,42,0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(26,63,111,0.16);
-    }
-    .nav-logo { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; letter-spacing: 0.04em; color: var(--c-white); text-decoration: none; }
-    .nav-logo span { color: var(--c-orange); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--font-head); font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color var(--transition); position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--c-orange); transition: width var(--transition); }
-    .nav-links a:hover { color: var(--c-white); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a.active { color: var(--c-orange); }
-    .nav-cta { background: var(--c-blue); color: var(--c-white) !important; padding: 0.45rem 1.2rem; border-radius: var(--radius); }
-    .nav-cta:hover { background: var(--c-blue-mid) !important; }
-    .nav-cta::after { display: none !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--c-white); }
-
-    /* PAGE HERO */
-    .page-hero {
-      padding: 140px 5vw 80px;
-      background: linear-gradient(160deg, #0D1B2A 0%, #1C2B3A 100%);
-      position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 50% 60% at 80% 50%, rgba(0,168,204,0.08) 0%, transparent 70%);
-    }
-    .page-hero-inner { position: relative; z-index: 1; max-width: 700px; }
-    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 1.5rem; font-family: var(--font-head); letter-spacing: 0.1em; text-transform: uppercase; }
-    .breadcrumb a { color: rgba(255,255,255,0.35); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--c-orange); }
-    .breadcrumb span { color: var(--c-orange); }
-    .section-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-head); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-orange); margin-bottom: 1rem; }
-    .section-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--c-orange); }
-    .page-title { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; text-transform: uppercase; line-height: 0.95; margin-bottom: 1.2rem; }
-    .page-subtitle { font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.55); max-width: 560px; line-height: 1.7; }
-
-    /* FILTER NAV */
-    .filter-nav {
-      background: var(--c-dark2);
-      padding: 1.5rem 5vw;
-      position: sticky; top: 68px; z-index: 50;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      display: flex; gap: 0.75rem; flex-wrap: wrap;
-    }
-    .filter-btn {
-      font-family: var(--font-head); font-size: 0.85rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      background: transparent; border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.55); padding: 0.45rem 1.1rem;
-      border-radius: 40px; cursor: pointer; transition: all var(--transition);
-      text-decoration: none;
-    }
-    .filter-btn:hover, .filter-btn.active { background: var(--c-blue); border-color: var(--c-blue); color: var(--c-white); }
-
-    /* PRODUCT SECTIONS */
-    .product-section {
-      padding: 5rem 5vw;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    .product-section:nth-child(even) { background: var(--c-dark2); }
-
-    .product-layout {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
-    }
-    .product-layout.reverse { direction: rtl; }
-    .product-layout.reverse > * { direction: ltr; }
-
-    .product-visual {
-      background: var(--c-dark3);
-      border-radius: 8px;
-      border: 1px solid rgba(26,63,111,0.12);
-      aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 4rem;
-      position: relative; overflow: hidden;
-    }
-    .product-visual-label {
-      position: absolute; bottom: 1rem; left: 1rem; right: 1rem;
-      font-family: var(--font-head); font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.2); text-align: center;
-    }
-    .product-num {
-      position: absolute; top: 1rem; right: 1.5rem;
-      font-family: var(--font-head); font-size: 4rem; font-weight: 800;
-      color: rgba(0,168,204,0.08); line-height: 1;
-    }
-
-    .product-info { display: flex; flex-direction: column; gap: 1.5rem; }
-    .product-info .section-tag { margin-bottom: 0; }
-    .product-name { font-family: var(--font-head); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; text-transform: uppercase; line-height: 1; }
-    .product-desc { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.75; font-weight: 300; }
-
-    .props-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .prop-item {
-      background: var(--c-dark3); border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius); padding: 0.75rem 1rem;
-      display: flex; align-items: flex-start; gap: 0.6rem;
-    }
-    .prop-icon { font-size: 1rem; margin-top: 1px; }
-    .prop-text { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.4; }
-    .prop-text strong { display: block; color: var(--c-white); font-weight: 500; font-size: 0.85rem; margin-bottom: 0.1rem; }
-
-    .spec-table { width: 100%; border-collapse: collapse; }
-    .spec-table th { font-family: var(--font-head); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-orange); text-align: left; padding: 0.6rem 0; border-bottom: 1px solid rgba(26,63,111,0.16); }
-    .spec-table td { font-size: 0.85rem; color: rgba(255,255,255,0.55); padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-    .spec-table td:first-child { color: var(--c-white); font-weight: 500; }
-
-    .applications { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .app-tag {
-      background: rgba(0,168,204,0.08); border: 1px solid rgba(0,168,204,0.25);
-      color: var(--c-orange); font-family: var(--font-head); font-size: 0.75rem;
-      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 0.3rem 0.8rem; border-radius: 40px;
-    }
-
-    .btn-cta {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--c-blue); color: var(--c-white);
-      font-family: var(--font-head); font-size: 1rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-      padding: 0.85rem 2rem; border-radius: var(--radius);
-      transition: background var(--transition), transform var(--transition);
-      align-self: flex-start;
-    }
-    .btn-cta:hover { background: var(--c-blue-mid); transform: translateY(-2px); }
-
-    /* CTA BAND */
-    .cta-band {
-      background: var(--c-blue);
-      padding: 4rem 5vw;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 2rem; flex-wrap: wrap;
-    }
-    .cta-band h2 { font-family: var(--font-head); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; text-transform: uppercase; line-height: 1.1; }
-    .cta-band p { font-size: 0.95rem; opacity: 0.85; margin-top: 0.5rem; }
-    .btn-white { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--c-white); color: var(--c-blue); font-family: var(--font-head); font-size: 1rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 2rem; border-radius: var(--radius); transition: opacity var(--transition); white-space: nowrap; }
-    .btn-white:hover { opacity: 0.9; }
-
-    footer { background: var(--c-dark2); border-top: 1px solid rgba(26,63,111,0.16); padding: 3rem 5vw 2rem; }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer-brand .nav-logo { display: block; margin-bottom: 1rem; font-size: 1.5rem; }
-    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; }
-    .footer-col h5 { font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--c-orange); margin-bottom: 1rem; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .footer-col ul a { font-size: 0.85rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color var(--transition); }
-    .footer-col ul a:hover { color: var(--c-white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: var(--c-dark2); padding: 2rem 5vw; gap: 1.5rem; border-bottom: 1px solid rgba(26,63,111,0.16); }
-      .hamburger { display: flex; }
-      .product-layout, .product-layout.reverse { grid-template-columns: 1fr; direction: ltr; }
-      .props-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .footer-brand { grid-column: span 2; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-      .cta-band { flex-direction: column; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="stylesheet" href="css/productos.css" />
+  <script src="components.js"></script>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">FORMA<span>POL</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html#eps">¿Qué es EPS?</a></li>
-    <li><a href="productos.html" class="active">Productos</a></li>
-    <li><a href="obras.html">Obras</a></li>
-    <li><a href="nosotros.html">Nosotros</a></li>
-    <li><a href="contacto.html" class="nav-cta">Contáctenos</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
-</nav>
+<site-nav></site-nav>
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="breadcrumb"><a href="index.html">Inicio</a> › <span>Productos</span></div>
     <span class="section-tag">Catálogo completo</span>
     <h1 class="page-title">Nuestros<br>Productos</h1>
     <p class="page-subtitle">Seis líneas de producción en EPS certificadas bajo normas ASTM y estándares internacionales, adaptadas a las necesidades de cada proyecto.</p>
@@ -226,9 +41,7 @@
 <section class="product-section" id="geofoam">
   <div class="product-layout">
     <div class="product-visual">
-      🛣️
-      <span class="product-num">01</span>
-      <span class="product-visual-label">Foto próximamente</span>
+      <img src="images/16.jpg" alt="Geofoam" class="product-image" />
     </div>
     <div class="product-info">
       <span class="section-tag">Infraestructura vial</span>
@@ -245,10 +58,10 @@
       <div>
         <p style="font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-orange);margin-bottom:0.75rem;">Ventajas</p>
         <div class="props-grid">
-          <div class="prop-item"><span class="prop-icon">⚡</span><div class="prop-text"><strong>Mayor rendimiento</strong>Sin maquinaria pesada de compactación</div></div>
-          <div class="prop-item"><span class="prop-icon">⚖️</span><div class="prop-text"><strong>Peso reducido</strong>98% menos peso que llenos tradicionales</div></div>
-          <div class="prop-item"><span class="prop-icon">🔧</span><div class="prop-text"><strong>Fácil instalación</strong>Manipulación manual sin equipos especiales</div></div>
-          <div class="prop-item"><span class="prop-icon">📐</span><div class="prop-text"><strong>Medidas adaptables</strong>Dimensiones y densidades a la medida del proyecto</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Mayor rendimiento</strong>Sin maquinaria pesada de compactación</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Peso reducido</strong>98% menos peso que llenos tradicionales</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Fácil instalación</strong>Manipulación manual sin equipos especiales</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Medidas adaptables</strong>Dimensiones y densidades a la medida del proyecto</div></div>
         </div>
       </div>
 
@@ -257,8 +70,6 @@
         <div class="applications">
           <span class="app-tag">Obras viales</span>
           <span class="app-tag">Viaductos</span>
-          <span class="app-tag">Terraplenes</span>
-          <span class="app-tag">Obras paisajísticas</span>
           <span class="app-tag">Contingencias</span>
           <span class="app-tag">Suelos blandos</span>
         </div>
@@ -273,24 +84,22 @@
 <section class="product-section" id="panel-muro">
   <div class="product-layout reverse">
     <div class="product-visual">
-      🏠
-      <span class="product-num">02</span>
-      <span class="product-visual-label">Foto próximamente</span>
+      <img src="images/17.jpg" alt="Panel ligero" class="product-image" />
     </div>
     <div class="product-info">
       <span class="section-tag">Sistema constructivo</span>
-      <h2 class="product-name">Panel Ligero<br>para Muro</h2>
+      <h2 class="product-name">Panel Ligero para Muro</h2>
       <p class="product-desc">Consiste en reemplazar la forma tradicional de construir viviendas y edificios por sistemas tecnificados e industrializados que permitan mejorar el rendimiento, la calidad, eficiencia, confort y minimizar los residuos en las obras de construcción.</p>
 
       <div>
         <p style="font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-orange);margin-bottom:0.75rem;">Beneficios del sistema</p>
         <div class="props-grid">
-          <div class="prop-item"><span class="prop-icon">⏱️</span><div class="prop-text"><strong>Rapidez</strong>Ejecución de proyectos más ágil</div></div>
-          <div class="prop-item"><span class="prop-icon">👷</span><div class="prop-text"><strong>Menos mano de obra</strong>Mayor eficiencia operativa</div></div>
-          <div class="prop-item"><span class="prop-icon">🌿</span><div class="prop-text"><strong>Menos residuos</strong>Obra más limpia y sostenible</div></div>
-          <div class="prop-item"><span class="prop-icon">🔇</span><div class="prop-text"><strong>Aislante</strong>Térmico y acústico por excelencia</div></div>
-          <div class="prop-item"><span class="prop-icon">💰</span><div class="prop-text"><strong>Mayor economía</strong>Reducción en costo global del proyecto</div></div>
-          <div class="prop-item"><span class="prop-icon">♾️</span><div class="prop-text"><strong>Durabilidad</strong>El material no envejece</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Rapidez</strong>Ejecución de proyectos más ágil</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Menos mano de obra</strong>Mayor eficiencia operativa</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Menos residuos</strong>Obra más limpia y sostenible</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Aislante</strong>Térmico y acústico por excelencia</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Mayor economía</strong>Reducción en costo global del proyecto</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Durabilidad</strong>El material no envejece</div></div>
         </div>
       </div>
 
@@ -314,22 +123,20 @@
 <section class="product-section" id="laminas">
   <div class="product-layout">
     <div class="product-visual">
-      🧱
-      <span class="product-num">03</span>
-      <span class="product-visual-label">Foto próximamente</span>
+      <img src="images/18.jpg" alt="Láminas de aislamiento" class="product-image" />
     </div>
     <div class="product-info">
       <span class="section-tag">Aislamiento</span>
-      <h2 class="product-name">Láminas de<br>Aislamiento<br>Térmico y Acústico</h2>
+      <h2 class="product-name">Láminas de Aislamiento<br>Térmico y Acústico</h2>
       <p class="product-desc">Láminas de EPS de diferentes espesores que, mediante su instalación en muros internos, pueden cumplir diferentes funciones de aislamiento. Ideales para proyectos que requieren control de temperatura y reducción de ruido entre espacios.</p>
 
       <div>
         <p style="font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-orange);margin-bottom:0.75rem;">Propiedades</p>
         <div class="props-grid">
-          <div class="prop-item"><span class="prop-icon">❄️</span><div class="prop-text"><strong>Aislamiento térmico</strong>Barrera eficaz contra transferencia de calor</div></div>
-          <div class="prop-item"><span class="prop-icon">🔇</span><div class="prop-text"><strong>Aislamiento acústico</strong>Reducción de transmisión de sonido</div></div>
-          <div class="prop-item"><span class="prop-icon">💧</span><div class="prop-text"><strong>Resistencia a la humedad</strong>Sin hongos ni bacterias</div></div>
-          <div class="prop-item"><span class="prop-icon">📏</span><div class="prop-text"><strong>Múltiples espesores</strong>Adaptables a cada necesidad</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Aislamiento térmico</strong>Barrera eficaz contra transferencia de calor</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Aislamiento acústico</strong>Reducción de transmisión de sonido</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Resistencia a la humedad</strong>Sin hongos ni bacterias</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Múltiples espesores</strong>Adaptables a cada necesidad</div></div>
         </div>
       </div>
 
@@ -354,32 +161,20 @@
 <section class="product-section" id="casetones">
   <div class="product-layout reverse">
     <div class="product-visual">
-      ⬜
-      <span class="product-num">04</span>
-      <span class="product-visual-label">Foto próximamente</span>
+      <img src="images/20.jpg" alt="Casetones para losas" class="product-image" />
     </div>
     <div class="product-info">
       <span class="section-tag">Construcción estructural</span>
-      <h2 class="product-name">Casetones<br>para Losas</h2>
+      <h2 class="product-name">Casetones para Losas</h2>
       <p class="product-desc">Casetones de poliestireno expandido utilizados en la construcción de edificaciones, específicamente en el aligeramiento de losas que trabajan en dos direcciones, dejando el espacio libre requerido por las vigas, viguetas y nervios para su correcto vaciado de concreto.</p>
-
-      <div>
-        <p style="font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-orange);margin-bottom:0.75rem;">Características</p>
-        <table class="spec-table">
-          <tr><th>Característica</th><th>Detalle</th></tr>
-          <tr><td>Tipos</td><td>Perdidos o recuperables</td></tr>
-          <tr><td>Medidas</td><td>Según necesidad del proyecto</td></tr>
-          <tr><td>Densidad</td><td>Variable según carga estructural</td></tr>
-        </table>
-      </div>
 
       <div>
         <p style="font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-orange);margin-bottom:0.75rem;">Ventajas estructurales</p>
         <div class="props-grid">
-          <div class="prop-item"><span class="prop-icon">📉</span><div class="prop-text"><strong>Reducción de cargas</strong>Aligeramiento considerable en estructuras</div></div>
-          <div class="prop-item"><span class="prop-icon">💧</span><div class="prop-text"><strong>Menos agua</strong>Menor consumo durante la construcción</div></div>
-          <div class="prop-item"><span class="prop-icon">⚡</span><div class="prop-text"><strong>Mayor rapidez</strong>Facilita el vaciado de concreto</div></div>
-          <div class="prop-item"><span class="prop-icon">💰</span><div class="prop-text"><strong>Economía</strong>Reducción en costos de mantenimiento</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Reducción de cargas</strong>Aligeramiento considerable en estructuras</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Menos agua</strong>Menor consumo durante la construcción</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Mayor rapidez</strong>Facilita el vaciado de concreto</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Economía</strong>Reducción en costos de mantenimiento</div></div>
         </div>
       </div>
 
@@ -392,23 +187,21 @@
 <section class="product-section" id="embalajes">
   <div class="product-layout">
     <div class="product-visual">
-      📦
-      <span class="product-num">05</span>
-      <span class="product-visual-label">Foto próximamente</span>
+      <img src="images/11.jpg" alt="Embalajes industriales" class="product-image" />
     </div>
     <div class="product-info">
       <span class="section-tag">Industria y electrodomésticos</span>
-      <h2 class="product-name">Embalajes<br>Industriales</h2>
+      <h2 class="product-name">Embalajes Industriales</h2>
       <p class="product-desc">El EPS ofrece excelentes soluciones en empaque para proteger, conservar y transportar todo tipo de productos. Es un material de bajo costo, fácilmente adaptable a múltiples formas, con excelentes propiedades de amortiguación, resistencia al impacto y aislamiento térmico.</p>
       <p class="product-desc">Formapol puede diseñar piezas de embalaje que se adapten a las dimensiones y características de cualquier tipo de producto.</p>
 
       <div>
         <p style="font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-orange);margin-bottom:0.75rem;">Tipos de piezas</p>
         <div class="props-grid">
-          <div class="prop-item"><span class="prop-icon">⬆️</span><div class="prop-text"><strong>Tapas</strong>Protección superior del producto</div></div>
-          <div class="prop-item"><span class="prop-icon">⬇️</span><div class="prop-text"><strong>Bases</strong>Soporte y amortiguación inferior</div></div>
-          <div class="prop-item"><span class="prop-icon">📐</span><div class="prop-text"><strong>Esquineros</strong>Protección de esquinas y bordes</div></div>
-          <div class="prop-item"><span class="prop-icon">↔️</span><div class="prop-text"><strong>Protectores laterales</strong>Amortiguación de impactos laterales</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Tapas</strong>Protección superior del producto</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Bases</strong>Soporte y amortiguación inferior</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Esquineros</strong>Protección de esquinas y bordes</div></div>
+          <div class="prop-item"><span class="prop-icon"></span><div class="prop-text"><strong>Protectores laterales</strong>Amortiguación de impactos laterales</div></div>
         </div>
       </div>
 
@@ -432,29 +225,27 @@
 <section class="product-section" id="especiales">
   <div class="product-layout reverse">
     <div class="product-visual">
-      ⚙️
-      <span class="product-num">06</span>
-      <span class="product-visual-label">Foto próximamente</span>
+      <img src="images/21.jpg" alt="Productos especiales en EPS" class="product-image" />
     </div>
     <div class="product-info">
       <span class="section-tag">A la medida</span>
-      <h2 class="product-name">Productos<br>Especiales</h2>
+      <h2 class="product-name">Productos Especiales</h2>
       <p class="product-desc">Actualmente en Formapol tenemos la capacidad de producir piezas especiales que se ajustan a la necesidad de cada cliente, aprovechando las valiosas propiedades físicas que tiene el EPS. Desde el diseño hasta la entrega, acompañamos todo el proceso.</p>
 
       <div>
         <p style="font-family:var(--font-head);font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-orange);margin-bottom:0.75rem;">Nuestro proceso de diseño</p>
-        <div style="display:flex;flex-direction:column;gap:1rem;">
-          <div style="display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--c-orange);line-height:1;min-width:36px;">1</span>
-            <div><strong style="font-family:var(--font-head);font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">Consulta inicial</strong><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">Entendemos sus necesidades, dimensiones y requisitos técnicos.</p></div>
+        <div style="display:flex;flex-direction:column;gap: 10px;align-content: center;">
+          <div style="display:flex;gap: 0;align-items: center;">
+            <span style="font-family:var(--font-head);font-size: 22px;font-weight:800;color:var(--c-orange);line-height:1;min-width:36px;">1</span>
+            <div><strong style="font-family:var(--font-head);font-size: 14px;text-transform:uppercase;">Consulta inicial</strong><p style="font-size: 14px;color:var(--c-gray-700);margin-top: 0;">Entendemos sus necesidades, dimensiones y requisitos técnicos.</p></div>
           </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--c-orange);line-height:1;min-width:36px;">2</span>
-            <div><strong style="font-family:var(--font-head);font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">Diseño y prototipo</strong><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">Desarrollamos el molde o pieza según sus especificaciones.</p></div>
+          <div style="display:flex;gap: 0;align-items: center;">
+            <span style="font-family:var(--font-head);font-size: 22px;font-weight:800;color:var(--c-orange);line-height:1;min-width:36px;">2</span>
+            <div><strong style="font-family:var(--font-head);font-size: 14px;text-transform:uppercase;">Diseño y prototipo</strong><p style="font-size: 14px;color:var(--c-gray-700);margin-top: 0;">Desarrollamos el molde o pieza según sus especificaciones.</p></div>
           </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start;">
-            <span style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--c-orange);line-height:1;min-width:36px;">3</span>
-            <div><strong style="font-family:var(--font-head);font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">Producción y entrega</strong><p style="font-size:0.85rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;">Fabricación en serie con control de calidad y despacho oportuno.</p></div>
+          <div style="display:flex;gap: 0;align-items: center;">
+            <span style="font-family:var(--font-head);font-size: 22px;font-weight:800;color:var(--c-orange);line-height:1;min-width:36px;">3</span>
+            <div><strong style="font-family:var(--font-head);font-size: 14px;text-transform:uppercase;">Producción y entrega</strong><p style="font-size: 14px;color:var(--c-gray-700);margin-top: 0;">Fabricación en serie con control de calidad y despacho oportuno.</p></div>
           </div>
         </div>
       </div>
@@ -464,51 +255,57 @@
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-band">
-  <div>
-    <h2>¿Necesita un producto<br>a la medida?</h2>
-    <p>Nuestro equipo técnico le asesora en la selección del producto ideal para su proyecto.</p>
-  </div>
-  <a href="contacto.html" class="btn-white">Solicitar cotización →</a>
-</div>
-
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a href="index.html" class="nav-logo">FORMA<span>POL</span></a>
-      <p>Fabricantes de soluciones en poliestireno expandido (EPS) para construcción, infraestructura vial e industria.</p>
+<section class="cta-parallax" id="contacto">
+  <div class="cta-parallax-inner">
+    <h2>Solicite una cotización<br>para su proyecto en EPS</h2>
+    <p>Cuéntenos los detalles técnicos de su proyecto y nuestro equipo de ingeniería le proporcionará una solución a la medida, con calidad certificada y precios competitivos.</p>
+    <div class="formulario">
+      <form class="cta-form" id="ctaForm" action="enviar.php" method="POST" novalidate>
+        <input type="hidden" name="origen" value="home">
+        <div class="cta-form-row">
+          <div class="cta-form-group">
+            <label for="cf-nombre">Nombre *</label>
+            <input type="text" id="cf-nombre" name="nombre" placeholder="Nombre completo" required />
+          </div>
+          <div class="cta-form-group">
+            <label for="cf-empresa">Empresa *</label>
+            <input type="text" id="cf-empresa" name="empresa" placeholder="Nombre de la empresa" required />
+          </div>
+        </div>
+        <div class="cta-form-row">
+          <div class="cta-form-group">
+            <label for="cf-email">Correo electrónico *</label>
+            <input type="email" id="cf-email" name="email" placeholder="correo@empresa.com" required />
+          </div>
+          <div class="cta-form-group">
+            <label for="cf-telefono">Teléfono</label>
+            <input type="tel" id="cf-telefono" name="telefono" placeholder="+57 300 000 0000" />
+          </div>
+        </div>
+        <div class="cta-form-group">
+          <label for="cf-producto">Línea o producto de interés</label>
+          <select id="cf-producto" name="producto">
+            <option value="">Seleccione una opción</option>
+            <option value="Geofoam">Geofoam</option>
+            <option value="Panel muro">Panel ligero para muro</option>
+            <option value="Laminas aislamiento">Láminas de aislamiento</option>
+            <option value="Casetones">Casetones para losas</option>
+            <option value="Embalajes">Embalajes industriales</option>
+            <option value="Productos especiales">Productos especiales</option>
+            <option value="Otro">Otro / No sé todavía</option>
+          </select>
+        </div>
+        <div class="cta-form-group">
+          <label for="cf-mensaje">Descripción del proyecto o requerimiento *</label>
+          <textarea id="cf-mensaje" name="mensaje" placeholder="Describa su proyecto: aplicación, materiales, cantidades estimadas, dimensiones, plazos..." required></textarea>
+        </div>
+        <button type="submit" class="cta-form-btn" id="ctaSubmitBtn">Enviar solicitud →</button>
+        <div id="ctaFormMsg" style="display:none;padding:0.85rem 1rem;border-radius:var(--radius);font-size:0.88rem;text-align:center;"></div>
+      </form>
     </div>
-    <div class="footer-col"><h5>Productos</h5><ul>
-      <li><a href="#geofoam">Geofoam</a></li>
-      <li><a href="#panel-muro">Panel ligero</a></li>
-      <li><a href="#laminas">Láminas de aislamiento</a></li>
-      <li><a href="#casetones">Casetones</a></li>
-      <li><a href="#embalajes">Embalajes</a></li>
-      <li><a href="#especiales">Productos especiales</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Empresa</h5><ul>
-      <li><a href="nosotros.html">Quiénes somos</a></li>
-      <li><a href="obras.html">Nuestras obras</a></li>
-      <li><a href="index.html#clientes">Clientes</a></li>
-    </ul></div>
-    <div class="footer-col"><h5>Contacto</h5><ul>
-      <li><a href="mailto:comercial@formapol.com">comercial@formapol.com</a></li>
-      <li><a href="tel:+5768740628">(6) 874 0628</a></li>
-      <li><a href="contacto.html">Solicitar cotización</a></li>
-    </ul></div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2025 Formapol S.A.S. Todos los derechos reservados.</p>
-    <p>Manizales, Caldas · Colombia</p>
-  </div>
-</footer>
+</section>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-</script>
+<site-footer></site-footer>
 </body>
 </html>
